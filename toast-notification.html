@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toast Notification - SF Component Library</title>
+    <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.22.1/assets/styles/salesforce-lightning-design-system.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="brand-text">SF Component Library</span>
+        </div>
+        <div class="navbar-menu">
+          <a href="index.html" class="nav-link">Components</a>
+          <a href="#" class="nav-link">Documentation</a>
+          <a href="#" class="nav-link">Resources</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="page-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <a href="index.html" class="breadcrumb-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Components
+          </a>
+        </div>
+
+        <!-- Header -->
+        <header class="page-header">
+          <div class="component-badge">
+            <span class="badge-dot"></span>
+            <span>Custom Component</span>
+          </div>
+          <h1 class="page-title">Toast Notification</h1>
+          <p class="page-description">
+            A custom toast notification system with different variants (success, error, warning, info) and auto-dismiss functionality.
+          </p>
+        </header>
+
+        <!-- Component Preview -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Preview
+          </h2>
+          <div class="component-preview" style="padding: 40px;">
+            <!-- Toast Container -->
+            <div class="slds-toast-container">
+              <!-- Success Toast -->
+              <div class="slds-toast slds-toast_success">
+                <div class="slds-toast__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </div>
+                <div class="slds-toast__content">
+                  <h3 class="slds-toast__title">Success!</h3>
+                  <p class="slds-toast__message">Record has been saved successfully.</p>
+                </div>
+                <button class="slds-toast__close">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Error Toast -->
+              <div class="slds-toast slds-toast_error">
+                <div class="slds-toast__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="15" y1="9" x2="9" y2="15"/>
+                    <line x1="9" y1="9" x2="15" y2="15"/>
+                  </svg>
+                </div>
+                <div class="slds-toast__content">
+                  <h3 class="slds-toast__title">Error!</h3>
+                  <p class="slds-toast__message">Unable to save the record. Please try again.</p>
+                </div>
+                <button class="slds-toast__close">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Warning Toast -->
+              <div class="slds-toast slds-toast_warning">
+                <div class="slds-toast__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                  </svg>
+                </div>
+                <div class="slds-toast__content">
+                  <h3 class="slds-toast__title">Warning</h3>
+                  <p class="slds-toast__message">Your session will expire in 5 minutes.</p>
+                </div>
+                <button class="slds-toast__close">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Info Toast -->
+              <div class="slds-toast slds-toast_info">
+                <div class="slds-toast__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="16" x2="12" y2="12"/>
+                    <line x1="12" y1="8" x2="12.01" y2="8"/>
+                  </svg>
+                </div>
+                <div class="slds-toast__content">
+                  <h3 class="slds-toast__title">Info</h3>
+                  <p class="slds-toast__message">New update available. Refresh to get the latest version.</p>
+                </div>
+                <button class="slds-toast__close">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LWC Code Section - HTML -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            LWC HTML Template
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">HTML</span>
+              <button class="copy-button" onclick="copyCode('toast-html')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="toast-html"><code><template>
+    <template if:true={isVisible}>
+        <div class="slds-toast-container">
+            <div class={toastClass}>
+                <div class="slds-toast__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <template if:true={isSuccess}>
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </template>
+                        <template if:true={isError}>
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                        </template>
+                        <template if:true={isWarning}>
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </template>
+                        <template if:true={isInfo}>
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </template>
+                    </svg>
+                </div>
+                <div class="slds-toast__content">
+                    <h3 class="slds-toast__title">{title}</h3>
+                    <p class="slds-toast__message">{message}</p>
+                </div>
+                <button class="slds-toast__close" onclick={closeToast}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </template>
+</template></code></pre>
+          </div>
+        </section>
+
+        <!-- LWC JavaScript -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            LWC JavaScript
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">JavaScript</span>
+              <button class="copy-button" onclick="copyCode('toast-js')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="toast-js"><code>import { LightningElement, api } from 'lwc';
+
+export default class SfToast extends LightningElement {
+    @api title = '';
+    @api message = '';
+    @api variant = 'info'; // success, error, warning, info
+    @api duration = 5000;
+    @api isVisible = false;
+
+    get toastClass() {
+        return `slds-toast slds-toast_${this.variant}`;
+    }
+
+    get isSuccess() {
+        return this.variant === 'success';
+    }
+
+    get isError() {
+        return this.variant === 'error';
+    }
+
+    get isWarning() {
+        return this.variant === 'warning';
+    }
+
+    get isInfo() {
+        return this.variant === 'info';
+    }
+
+    @api
+    show() {
+        this.isVisible = true;
+        if (this.duration > 0) {
+            setTimeout(() => this.closeToast(), this.duration);
+        }
+    }
+
+    closeToast() {
+        this.isVisible = false;
+    }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- Usage Notes -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Usage Notes
+          </h2>
+          <div class="usage-notes">
+            <ul>
+              <li>Custom toast notification with improved styling</li>
+              <li>Four variants: success, error, warning, info</li>
+              <li>Auto-dismiss with configurable duration</li>
+              <li>Manual close with X button</li>
+              <li>Use @api show() method to display toast</li>
+              <li>Parent component can call show() and set properties</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">Salesforce Component Library • Built with Vite.js & SLDS2</p>
+      </div>
+    </footer>
+
+    <script src="/src/scripts/copy-code.js"></script>
+  </body>
+</html>

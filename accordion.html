@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion - SF Component Library</title>
+    <!-- Salesforce Lightning Design System -->
+    <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.22.1/assets/styles/salesforce-lightning-design-system.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="brand-text">SF Component Library</span>
+        </div>
+        <div class="navbar-menu">
+          <a href="index.html" class="nav-link">Components</a>
+          <a href="#" class="nav-link">Documentation</a>
+          <a href="#" class="nav-link">Resources</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="page-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <a href="index.html" class="breadcrumb-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Components
+          </a>
+        </div>
+
+        <!-- Header -->
+        <header class="page-header">
+          <div class="component-badge">
+            <span class="badge-dot"></span>
+            <span>Core Component</span>
+          </div>
+          <h1 class="page-title">Accordion</h1>
+          <p class="page-description">
+            A component that allows users to toggle the visibility of sections of content. 
+            Built with SLDS patterns and fully compatible with LWC.
+          </p>
+        </header>
+
+        <!-- Component Preview -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Preview
+          </h2>
+          <div class="component-preview">
+            <!-- SLDS Accordion -->
+            <div class="slds-accordion">
+              <div class="slds-accordion__section slds-is-open">
+                <button class="slds-accordion__summary-action" aria-controls="accordion-content-1" aria-expanded="true">
+                  <svg class="slds-accordion__summary-action-icon slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                  </svg>
+                  <span class="slds-accordion__summary-heading">What is Salesforce?</span>
+                </button>
+                <div class="slds-accordion__content" id="accordion-content-1">
+                  <p>Salesforce is a customer relationship management (CRM) platform that helps businesses manage customer data, track interactions, and automate sales processes. It provides a suite of tools for marketing, sales, customer service, and analytics.</p>
+                </div>
+              </div>
+              <div class="slds-accordion__section">
+                <button class="slds-accordion__summary-action" aria-controls="accordion-content-2" aria-expanded="false">
+                  <svg class="slds-accordion__summary-action-icon slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                  </svg>
+                  <span class="slds-accordion__summary-heading">What are Lightning Web Components?</span>
+                </button>
+                <div class="slds-accordion__content" id="accordion-content-2">
+                  <p>Lightning Web Components (LWC) are a Salesforce programming model for building enterprise-scale applications. They use standard HTML, CSS, and JavaScript, combined with powerful Salesforce APIs and platform features.</p>
+                </div>
+              </div>
+              <div class="slds-accordion__section">
+                <button class="slds-accordion__summary-action" aria-controls="accordion-content-3" aria-expanded="false">
+                  <svg class="slds-accordion__summary-action-icon slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                  </svg>
+                  <span class="slds-accordion__summary-heading">How do I deploy components to Salesforce?</span>
+                </button>
+                <div class="slds-accordion__content" id="accordion-content-3">
+                  <p>You can deploy Lightning Web Components to Salesforce using Salesforce CLI, VS Code with Salesforce Extensions, or by packaging them in a managed package.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LWC Code Section - HTML -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            LWC HTML Template
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">HTML</span>
+              <button class="copy-button" onclick="copyCode('lwc-html')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="lwc-html"><code>&lt;template&gt;
+    &lt;div class="slds-accordion"&gt;
+        &lt;template for:each={sections} for:item="section"&gt;
+            &lt;div class="slds-accordion__section" key={section.id} class:slds-is-open={section.isOpen}&gt;
+                &lt;button class="slds-accordion__summary-action" 
+                        aria-controls={section.contentId} 
+                        aria-expanded={section.isOpen}
+                        onclick={toggleSection}&gt;
+                    &lt;svg class="slds-accordion__summary-action-icon slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true"&gt;
+                        &lt;use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"&gt;&lt;/use&gt;
+                    &lt;/svg&gt;
+                    &lt;span class="slds-accordion__summary-heading"&gt;{section.title}&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;div class="slds-accordion__content" id={section.contentId}&gt;
+                    &lt;p&gt;{section.content}&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+    &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- LWC JavaScript -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            LWC JavaScript
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">JavaScript</span>
+              <button class="copy-button" onclick="copyCode('lwc-js')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="lwc-js"><code>import { LightningElement, track } from 'lwc';
+
+export default class SfAccordion extends LightningElement {
+    @track sections = [
+        {
+            id: 'section-1',
+            title: 'What is Salesforce?',
+            contentId: 'accordion-content-1',
+            content: 'Salesforce is a CRM platform that helps businesses manage customer data, track interactions, and automate sales processes.',
+            isOpen: true
+        },
+        {
+            id: 'section-2',
+            title: 'What are Lightning Web Components?',
+            contentId: 'accordion-content-2',
+            content: 'Lightning Web Components (LWC) are a Salesforce programming model for building enterprise-scale applications.',
+            isOpen: false
+        },
+        {
+            id: 'section-3',
+            title: 'How do I deploy components to Salesforce?',
+            contentId: 'accordion-content-3',
+            content: 'You can deploy Lightning Web Components to Salesforce using Salesforce CLI, VS Code with Salesforce Extensions.',
+            isOpen: false
+        }
+    ];
+
+    toggleSection(event) {
+        const sectionId = event.currentTarget.closest('.slds-accordion__section').dataset.id;
+        this.sections = this.sections.map(section => ({
+            ...section,
+            isOpen: section.id === sectionId ? !section.isOpen : section.isOpen
+        }));
+    }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- LWC CSS -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+            LWC CSS
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">CSS</span>
+              <button class="copy-button" onclick="copyCode('lwc-css')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="lwc-css"><code>.slds-accordion__section.slds-is-open .slds-accordion__content {
+    display: block;
+}
+
+.slds-accordion__section.slds-is-open .slds-accordion__summary-action-icon {
+    transform: rotate(90deg);
+}
+
+.slds-accordion__content {
+    display: none;
+    padding: 0.75rem 1rem;
+}
+
+.slds-accordion__summary-action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.slds-accordion__summary-action:hover {
+    background-color: #f3f3f3;
+}
+
+.slds-accordion__summary-action-icon {
+    transition: transform 0.2s ease;
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- Usage Notes -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Usage Notes
+          </h2>
+          <div class="usage-notes">
+            <ul>
+              <li>Uses Salesforce Lightning Design System (SLDS) accordion patterns</li>
+              <li>Compatible with Lightning Web Components (LWC)</li>
+              <li>Uses <code>@track</code> decorator for reactive property updates</li>
+              <li>Implements toggle logic with <code>map()</code> for immutability</li>
+              <li>Uses <code>for:each</code> directive for rendering sections</li>
+              <li>Includes proper ARIA attributes for accessibility</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">Salesforce Component Library • Built with Vite.js & SLDS2</p>
+      </div>
+    </footer>
+
+    <script src="/src/scripts/slds-accordion.js"></script>
+    <script src="/src/scripts/copy-code.js"></script>
+  </body>
+</html>

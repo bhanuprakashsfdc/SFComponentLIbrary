@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Carousel - SF Component Library</title>
+    <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.22.1/assets/styles/salesforce-lightning-design-system.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="brand-text">SF Component Library</span>
+        </div>
+        <div class="navbar-menu">
+          <a href="index.html" class="nav-link">Components</a>
+          <a href="#" class="nav-link">Documentation</a>
+          <a href="#" class="nav-link">Resources</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="page-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <a href="index.html" class="breadcrumb-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Components
+          </a>
+        </div>
+
+        <!-- Header -->
+        <header class="page-header">
+          <div class="component-badge">
+            <span class="badge-dot"></span>
+            <span>Custom Component</span>
+          </div>
+          <h1 class="page-title">Card Carousel</h1>
+          <p class="page-description">
+            A horizontal carousel for displaying cards in a scrollable view. Supports navigation controls and responsive layout.
+          </p>
+        </header>
+
+        <!-- Component Preview -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Preview
+          </h2>
+          <div class="component-preview" style="padding: 32px 0;">
+            <!-- Card Carousel -->
+            <div class="slds-carousel">
+              <div class="slds-carousel__content">
+                <!-- Card 1 -->
+                <div class="slds-carousel__card">
+                  <div class="slds-carousel__card-image">
+                    <div class="slds-carousel__card-image-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                  </div>
+                  <div class="slds-carousel__card-body">
+                    <h3 class="slds-carousel__card-title">Q1 Performance Report</h3>
+                    <p class="slds-carousel__card-description">Review the quarterly performance metrics and key achievements for Q1 2026.</p>
+                    <span class="slds-badge slds-badge_success">Published</span>
+                  </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="slds-carousel__card">
+                  <div class="slds-carousel__card-image">
+                    <div class="slds-carousel__card-image-placeholder" style="background: linear-gradient(135deg, #11998e, #38ef7d);"></div>
+                  </div>
+                  <div class="slds-carousel__card-body">
+                    <h3 class="slds-carousel__card-title">Product Roadmap</h3>
+                    <p class="slds-carousel__card-description">Upcoming features and product roadmap for the next quarter.</p>
+                    <span class="slds-badge slds-theme_warning">Draft</span>
+                  </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="slds-carousel__card">
+                  <div class="slds-carousel__card-image">
+                    <div class="slds-carousel__card-image-placeholder" style="background: linear-gradient(135deg, #ee0979, #ff6a00);"></div>
+                  </div>
+                  <div class="slds-carousel__card-body">
+                    <h3 class="slds-carousel__card-title">Team Updates</h3>
+                    <p class="slds-carousel__card-description">New team members, promotions, and organizational changes.</p>
+                    <span class="slds-badge slds-badge_success">Published</span>
+                  </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="slds-carousel__card">
+                  <div class="slds-carousel__card-image">
+                    <div class="slds-carousel__card-image-placeholder" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+                  </div>
+                  <div class="slds-carousel__card-body">
+                    <h3 class="slds-carousel__card-title">Customer Success Stories</h3>
+                    <p class="slds-carousel__card-description">Featured customer success stories and case studies from this month.</p>
+                    <span class="slds-badge slds-badge_success">Published</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Navigation -->
+              <div class="slds-carousel__autoplay">
+                <button class="slds-button slds-button_icon" aria-label="Previous">
+                  <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#left"></use>
+                  </svg>
+                </button>
+                <div class="slds-carousel__indicators">
+                  <button class="slds-carousel__indicator slds-carousel__indicator_active" aria-label="Slide 1"></button>
+                  <button class="slds-carousel__indicator" aria-label="Slide 2"></button>
+                  <button class="slds-carousel__indicator" aria-label="Slide 3"></button>
+                  <button class="slds-carousel__indicator" aria-label="Slide 4"></button>
+                </div>
+                <button class="slds-button slds-button_icon" aria-label="Next">
+                  <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#right"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LWC Code Section - HTML -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            LWC HTML Template
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">HTML</span>
+              <button class="copy-button" onclick="copyCode('carousel-html')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="carousel-html"><code><template>
+    <div class="slds-carousel">
+        <div class="slds-carousel__content">
+            <template for:each={cards} for:item="card">
+                <div class="slds-carousel__card" key={card.id}>
+                    <div class="slds-carousel__card-image">
+                        <div class="slds-carousel__card-image-placeholder" style={card.imageStyle}></div>
+                    </div>
+                    <div class="slds-carousel__card-body">
+                        <h3 class="slds-carousel__card-title">{card.title}</h3>
+                        <p class="slds-carousel__card-description">{card.description}</p>
+                        <span class={card.badgeClass}>{card.badge}</span>
+                    </div>
+                </div>
+            </template>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="slds-carousel__autoplay">
+            <button class="slds-button slds-button_icon" onclick={previousSlide}>
+                <svg class="slds-icon slds-icon_x-small"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#left"></use></svg>
+            </button>
+            <div class="slds-carousel__indicators">
+                <template for:each={cards} for:item="card" for:index="index">
+                    <button class="slds-carousel__indicator" 
+                             class:slds-carousel__indicator_active={index === currentIndex}
+                             aria-label={'Slide ' + (index + 1)}
+                             onclick={goToSlide}></button>
+                </template>
+            </div>
+            <button class="slds-button slds-button_icon" onclick={nextSlide}>
+                <svg class="slds-icon slds-icon_x-small"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#right"></use></svg>
+            </button>
+        </div>
+    </div>
+</template></code></pre>
+          </div>
+        </section>
+
+        <!-- LWC JavaScript -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            LWC JavaScript
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">JavaScript</span>
+              <button class="copy-button" onclick="copyCode('carousel-js')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="carousel-js"><code>import { LightningElement, track } from 'lwc';
+
+export default class SfCardCarousel extends LightningElement {
+    @track currentIndex = 0;
+    
+    @track cards = [
+        {
+            id: '1',
+            title: 'Q1 Performance Report',
+            description: 'Review the quarterly performance metrics and key achievements.',
+            badge: 'Published',
+            badgeClass: 'slds-badge slds-badge_success',
+            imageStyle: 'background: linear-gradient(135deg, #667eea, #764ba2);'
+        },
+        {
+            id: '2',
+            title: 'Product Roadmap',
+            description: 'Upcoming features and product roadmap for the next quarter.',
+            badge: 'Draft',
+            badgeClass: 'slds-badge slds-theme_warning',
+            imageStyle: 'background: linear-gradient(135deg, #11998e, #38ef7d);'
+        },
+        {
+            id: '3',
+            title: 'Team Updates',
+            description: 'New team members, promotions, and organizational changes.',
+            badge: 'Published',
+            badgeClass: 'slds-badge slds-badge_success',
+            imageStyle: 'background: linear-gradient(135deg, #ee0979, #ff6a00);'
+        },
+        {
+            id: '4',
+            title: 'Customer Success Stories',
+            description: 'Featured customer success stories and case studies.',
+            badge: 'Published',
+            badgeClass: 'slds-badge slds-badge_success',
+            imageStyle: 'background: linear-gradient(135deg, #4facfe, #00f2fe);'
+        }
+    ];
+
+    previousSlide() {
+        this.currentIndex = this.currentIndex === 0 
+            ? this.cards.length - 1 
+            : this.currentIndex - 1;
+    }
+
+    nextSlide() {
+        this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+    }
+
+    goToSlide(event) {
+        const index = parseInt(event.target.dataset.index);
+        this.currentIndex = index;
+    }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- Usage Notes -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Usage Notes
+          </h2>
+          <div class="usage-notes">
+            <ul>
+              <li>Custom card carousel not in Salesforce documentation</li>
+              <li>Perfect for dashboards, news feeds, and featured content</li>
+              <li>Previous/Next navigation buttons</li>
+              <li>Dot indicators for slide navigation</li>
+              <li>Supports dynamic card data from JavaScript</li>
+              <li>Fully responsive with horizontal scroll on mobile</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">Salesforce Component Library • Built with Vite.js & SLDS2</p>
+      </div>
+    </footer>
+
+    <script src="/src/scripts/copy-code.js"></script>
+  </body>
+</html>

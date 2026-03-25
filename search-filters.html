@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search with Filters - SF Component Library</title>
+    <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.22.1/assets/styles/salesforce-lightning-design-system.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="brand-text">SF Component Library</span>
+        </div>
+        <div class="navbar-menu">
+          <a href="index.html" class="nav-link">Components</a>
+          <a href="#" class="nav-link">Documentation</a>
+          <a href="#" class="nav-link">Resources</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="page-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <a href="index.html" class="breadcrumb-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Components
+          </a>
+        </div>
+
+        <!-- Header -->
+        <header class="page-header">
+          <div class="component-badge">
+            <span class="badge-dot"></span>
+            <span>Custom Component</span>
+          </div>
+          <h1 class="page-title">Search with Filters</h1>
+          <p class="page-description">
+            A search input component with dynamic filter chips. Users can search and apply multiple filters 
+            with the ability to remove individual filters.
+          </p>
+        </header>
+
+        <!-- Component Preview -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Preview
+          </h2>
+          <div class="component-preview">
+            <!-- Search with Filters -->
+            <div class="slds-search-filters">
+              <!-- Search Input -->
+              <div class="slds-search-filters__search">
+                <div class="slds-input_container slds-input-has-icon slds-input-has-icon_left">
+                  <svg class="slds-input__icon slds-icon_x-small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                  </svg>
+                  <input type="text" class="slds-input" placeholder="Search accounts, contacts, or opportunities..." />
+                </div>
+              </div>
+              
+              <!-- Filter Chips -->
+              <div class="slds-search-filters__chips">
+                <span class="slds-pill slds-pill_link">
+                  <a href="#" class="slds-pill__action" title="Type: Customer">
+                    <span class="slds-pill__label">Type:</span> Customer
+                  </a>
+                  <button class="slds-pill__remove" title="Remove">
+                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                  </button>
+                </span>
+                
+                <span class="slds-pill slds-pill_link">
+                  <a href="#" class="slds-pill__action" title="Status: Active">
+                    <span class="slds-pill__label">Status:</span> Active
+                  </a>
+                  <button class="slds-pill__remove" title="Remove">
+                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                  </button>
+                </span>
+                
+                <span class="slds-pill slds-pill_link">
+                  <a href="#" class="slds-pill__action" title="Industry: Technology">
+                    <span class="slds-pill__label">Industry:</span> Technology
+                  </a>
+                  <button class="slds-pill__remove" title="Remove">
+                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                  </button>
+                </span>
+                
+                <button class="slds-button slds-button_neutral">+ Add Filter</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LWC Code Section - HTML -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            LWC HTML Template
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">HTML</span>
+              <button class="copy-button" onclick="copyCode('search-html')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="search-html"><code><template>
+    <div class="slds-search-filters">
+        <!-- Search Input -->
+        <div class="slds-search-filters__search">
+            <div class="slds-input_container slds-input-has-icon slds-input-has-icon_left">
+                <svg class="slds-input__icon slds-icon_x-small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                </svg>
+                <input type="text" 
+                        class="slds-input" 
+                        placeholder={placeholder}
+                        oninput={handleSearch} />
+            </div>
+        </div>
+        
+        <!-- Filter Chips -->
+        <div class="slds-search-filters__chips">
+            <template for:each={filters} for:item="filter">
+                <span class="slds-pill slds-pill_link" key={filter.id}>
+                    <a href="#" class="slds-pill__action" title={filter.label}>
+                        <span class="slds-pill__label">{filter.key}:</span> {filter.value}
+                    </a>
+                    <button class="slds-pill__remove" 
+                             title="Remove" 
+                             data-id={filter.id}
+                             onclick={removeFilter}>
+                        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                        </svg>
+                    </button>
+                </span>
+            </template>
+            
+            <button class="slds-button slds-button_neutral" onclick={showFilterModal}>
+                + Add Filter
+            </button>
+        </div>
+    </div>
+</template></code></pre>
+          </div>
+        </section>
+
+        <!-- LWC JavaScript -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            LWC JavaScript
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">JavaScript</span>
+              <button class="copy-button" onclick="copyCode('search-js')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="search-js"><code>import { LightningElement, track } from 'lwc';
+
+export default class SfSearchFilters extends LightningElement {
+    @track searchTerm = '';
+    @track placeholder = 'Search accounts, contacts, or opportunities...';
+    
+    @track filters = [
+        { id: '1', key: 'Type', value: 'Customer', label: 'Type: Customer' },
+        { id: '2', key: 'Status', value: 'Active', label: 'Status: Active' },
+        { id: '3', key: 'Industry', value: 'Technology', label: 'Industry: Technology' }
+    ];
+
+    handleSearch(event) {
+        this.searchTerm = event.target.value;
+        // Emit search event with filters
+        this.dispatchEvent(new CustomEvent('search', {
+            detail: { 
+                term: this.searchTerm, 
+                filters: this.filters 
+            }
+        }));
+    }
+
+    removeFilter(event) {
+        const filterId = event.currentTarget.dataset.id;
+        this.filters = this.filters.filter(f => f.id !== filterId);
+        
+        // Emit updated filters
+        this.dispatchEvent(new CustomEvent('filterchange', {
+            detail: { filters: this.filters }
+        }));
+    }
+
+    showFilterModal() {
+        // Emit event to show filter selection modal
+        this.dispatchEvent(new CustomEvent('showfiltermodal'));
+    }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- Usage Notes -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Usage Notes
+          </h2>
+          <div class="usage-notes">
+            <ul>
+              <li>Custom search component with dynamic filters not in Salesforce docs</li>
+              <li>Uses SLDS Input and Pill components for styling</li>
+              <li>Filter chips are removable with X button</li>
+              <li>Search and filter events can be used for data fetching</li>
+              <li>Add Filter button can trigger a modal for filter selection</li>
+              <li>Perfect for list views and global search implementations</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">Salesforce Component Library • Built with Vite.js & SLDS2</p>
+      </div>
+    </footer>
+
+    <script src="/src/scripts/copy-code.js"></script>
+  </body>
+</html>

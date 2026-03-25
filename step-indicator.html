@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step Indicator - SF Component Library</title>
+    <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.22.1/assets/styles/salesforce-lightning-design-system.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="brand-text">SF Component Library</span>
+        </div>
+        <div class="navbar-menu">
+          <a href="index.html" class="nav-link">Components</a>
+          <a href="#" class="nav-link">Documentation</a>
+          <a href="#" class="nav-link">Resources</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="page-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <a href="index.html" class="breadcrumb-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Components
+          </a>
+        </div>
+
+        <!-- Header -->
+        <header class="page-header">
+          <div class="component-badge">
+            <span class="badge-dot"></span>
+            <span>Custom Component</span>
+          </div>
+          <h1 class="page-title">Step Indicator</h1>
+          <p class="page-description">
+            A horizontal step indicator for multi-step wizards and processes. 
+            Shows progress through numbered steps with labels and descriptions.
+          </p>
+        </header>
+
+        <!-- Component Preview -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Preview
+          </h2>
+          <div class="component-preview">
+            <!-- Step Indicator -->
+            <div class="slds-step-indicator">
+              <!-- Step 1 - Completed -->
+              <div class="slds-step-indicator__step slds-step-indicator__step_completed">
+                <div class="slds-step-indicator__step-icon">
+                  <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                  </svg>
+                </div>
+                <div class="slds-step-indicator__step-content">
+                  <span class="slds-step-indicator__step-title">Account Details</span>
+                  <span class="slds-step-indicator__step-meta">Basic information</span>
+                </div>
+              </div>
+              
+              <!-- Connector -->
+              <div class="slds-step-indicator__connector">
+                <div class="slds-step-indicator__connector-line slds-step-indicator__connector-line_completed"></div>
+              </div>
+
+              <!-- Step 2 - Completed -->
+              <div class="slds-step-indicator__step slds-step-indicator__step_completed">
+                <div class="slds-step-indicator__step-icon">
+                  <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                  </svg>
+                </div>
+                <div class="slds-step-indicator__step-content">
+                  <span class="slds-step-indicator__step-title">Contact Info</span>
+                  <span class="slds-step-indicator__step-meta">Primary contact</span>
+                </div>
+              </div>
+              
+              <!-- Connector -->
+              <div class="slds-step-indicator__connector">
+                <div class="slds-step-indicator__connector-line slds-step-indicator__connector-line_completed"></div>
+              </div>
+
+              <!-- Step 3 - Current -->
+              <div class="slds-step-indicator__step slds-step-indicator__step_current">
+                <div class="slds-step-indicator__step-icon">
+                  <span class="slds-step-indicator__step-number">3</span>
+                </div>
+                <div class="slds-step-indicator__step-content">
+                  <span class="slds-step-indicator__step-title">Review</span>
+                  <span class="slds-step-indicator__step-meta">Confirm details</span>
+                </div>
+              </div>
+              
+              <!-- Connector -->
+              <div class="slds-step-indicator__connector">
+                <div class="slds-step-indicator__connector-line"></div>
+              </div>
+
+              <!-- Step 4 - Pending -->
+              <div class="slds-step-indicator__step slds-step-indicator__step_pending">
+                <div class="slds-step-indicator__step-icon">
+                  <span class="slds-step-indicator__step-number">4</span>
+                </div>
+                <div class="slds-step-indicator__step-content">
+                  <span class="slds-step-indicator__step-title">Submit</span>
+                  <span class="slds-step-indicator__step-meta">Complete form</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LWC Code Section - HTML -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            LWC HTML Template
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">HTML</span>
+              <button class="copy-button" onclick="copyCode('step-html')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="step-html"><code><template>
+    <div class="slds-step-indicator">
+        <template for:each={steps} for:item="step" for:index="index">
+            <div class="slds-step-indicator__step" 
+                 key={step.id}
+                 class:slds-step-indicator__step_completed={step.completed}
+                 class:slds-step-indicator__step_current={step.current}
+                 class:slds-step-indicator__step_pending={step.pending}>
+                <div class="slds-step-indicator__step-icon">
+                    <template if:true={step.completed}>
+                        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                        </svg>
+                    </template>
+                    <template if:true={step.current}>
+                        <span class="slds-step-indicator__step-number">{step.number}</span>
+                    </template>
+                    <template if:true={step.pending}>
+                        <span class="slds-step-indicator__step-number">{step.number}</span>
+                    </template>
+                </div>
+                <div class="slds-step-indicator__step-content">
+                    <span class="slds-step-indicator__step-title">{step.title}</span>
+                    <span class="slds-step-indicator__step-meta">{step.meta}</span>
+                </div>
+            </div>
+            <template if:true={step.hasConnector}>
+                <div class="slds-step-indicator__connector">
+                    <div class="slds-step-indicator__connector-line" 
+                         class:slds-step-indicator__connector-line_completed={step.completed}></div>
+                </div>
+            </template>
+        </template>
+    </div>
+</template></code></pre>
+          </div>
+        </section>
+
+        <!-- LWC JavaScript -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            LWC JavaScript
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">JavaScript</span>
+              <button class="copy-button" onclick="copyCode('step-js')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="step-js"><code>import { LightningElement, track } from 'lwc';
+
+export default class SfStepIndicator extends LightningElement {
+    @track steps = [
+        {
+            id: '1',
+            number: 1,
+            title: 'Account Details',
+            meta: 'Basic information',
+            completed: true,
+            current: false,
+            pending: false,
+            hasConnector: true
+        },
+        {
+            id: '2',
+            number: 2,
+            title: 'Contact Info',
+            meta: 'Primary contact',
+            completed: true,
+            current: false,
+            pending: false,
+            hasConnector: true
+        },
+        {
+            id: '3',
+            number: 3,
+            title: 'Review',
+            meta: 'Confirm details',
+            completed: false,
+            current: true,
+            pending: false,
+            hasConnector: true
+        },
+        {
+            id: '4',
+            number: 4,
+            title: 'Submit',
+            meta: 'Complete form',
+            completed: false,
+            current: false,
+            pending: true,
+            hasConnector: false
+        }
+    ];
+
+    goToStep(event) {
+        const stepId = event.currentTarget.dataset.id;
+        this.steps = this.steps.map(step => ({
+            ...step,
+            completed: step.id < stepId,
+            current: step.id === stepId,
+            pending: step.id > stepId
+        }));
+    }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- Usage Notes -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Usage Notes
+          </h2>
+          <div class="usage-notes">
+            <ul>
+              <li>Custom step indicator not available in standard Salesforce documentation</li>
+              <li>Perfect for multi-step forms, wizards, and onboarding flows</li>
+              <li>Three states: completed (with checkmark), current (highlighted), pending (grayed)</li>
+              <li>Includes connector lines between steps</li>
+              <li>Each step can have a title and meta description</li>
+              <li>Fully responsive and LWC compatible</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">Salesforce Component Library • Built with Vite.js & SLDS2</p>
+      </div>
+    </footer>
+
+    <script src="/src/scripts/copy-code.js"></script>
+  </body>
+</html>

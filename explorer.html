@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component Explorer - SF Component Library</title>
+    <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.22.1/assets/styles/salesforce-lightning-design-system.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <svg style="display: none;">
+      <symbol id="slds-switch" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></symbol>
+      <symbol id="slds-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
+      <symbol id="slds-download" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></symbol>
+      <symbol id="slds-analytics" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></symbol>
+      <symbol id="slds-success" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></symbol>
+      <symbol id="slds-error" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></symbol>
+      <symbol id="slds-warning" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></symbol>
+    </svg>
+    <style>
+      /* Explorer Layout */
+      .explorer {
+        display: flex;
+        height: calc(100vh - 64px);
+        overflow: hidden;
+      }
+
+      /* Left Sidebar */
+      .explorer-sidebar {
+        width: 280px;
+        min-width: 280px;
+        background: var(--bg-secondary);
+        border-right: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .sidebar-header {
+        padding: 16px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .search-box {
+        position: relative;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 10px 12px 10px 36px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-size: 14px;
+        transition: all 0.2s;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px var(--primary-color-alpha);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        pointer-events: none;
+      }
+
+      .sidebar-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 8px;
+      }
+
+      .component-category {
+        margin-bottom: 8px;
+      }
+
+      .category-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: background 0.2s;
+      }
+
+      .category-header:hover {
+        background: var(--bg-hover);
+      }
+
+      .category-title {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        letter-spacing: 0.5px;
+      }
+
+      .category-chevron {
+        transition: transform 0.2s;
+      }
+
+      .category-header.collapsed .category-chevron {
+        transform: rotate(-90deg);
+      }
+
+      .category-items {
+        padding-left: 8px;
+      }
+
+      .category-items.collapsed {
+        display: none;
+      }
+
+      .component-item {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        margin: 2px 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--text-secondary);
+      }
+
+      .component-item:hover {
+        background: var(--bg-hover);
+        color: var(--text-primary);
+      }
+
+      .component-item.active {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .component-item-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        opacity: 0.7;
+      }
+
+      .component-item.active .component-item-icon {
+        opacity: 1;
+      }
+
+      .component-item-name {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      /* Main Panel */
+      .explorer-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: var(--bg-primary);
+      }
+
+      .main-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+        border-bottom: 1px solid var(--border-color);
+        background: var(--bg-secondary);
+      }
+
+      .component-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .component-name {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .component-badge {
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        background: var(--primary-color-alpha);
+        color: var(--primary-color);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-primary);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .theme-toggle:hover {
+        border-color: var(--primary-color);
+      }
+
+      .responsive-btns {
+        display: flex;
+        gap: 4px;
+        padding: 4px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-primary);
+      }
+
+      .responsive-btn {
+        padding: 6px 12px;
+        border: none;
+        background: transparent;
+        color: var(--text-muted);
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s;
+        font-size: 12px;
+      }
+
+      .responsive-btn.active {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .main-content {
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+      }
+
+      /* Preview Panel */
+      .preview-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border-right: 1px solid var(--border-color);
+      }
+
+      .preview-tabs {
+        display: flex;
+        gap: 4px;
+        padding: 12px 24px;
+        border-bottom: 1px solid var(--border-color);
+        background: var(--bg-secondary);
+      }
+
+      .preview-tab {
+        padding: 8px 16px;
+        border: none;
+        background: transparent;
+        color: var(--text-muted);
+        cursor: pointer;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .preview-tab:hover {
+        color: var(--text-primary);
+        background: var(--bg-hover);
+      }
+
+      .preview-tab.active {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .preview-content {
+        flex: 1;
+        padding: 24px;
+        overflow: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .preview-frame {
+        width: 100%;
+        max-width: 100%;
+        transition: max-width 0.3s ease;
+        background: var(--bg-primary);
+        border-radius: 8px;
+        padding: 24px;
+      }
+
+      .preview-frame.mobile {
+        max-width: 375px;
+        border: 2px dashed var(--border-color);
+      }
+
+      .preview-frame.tablet {
+        max-width: 768px;
+        border: 2px dashed var(--border-color);
+      }
+
+      .preview-frame.desktop {
+        max-width: 100%;
+      }
+
+      /* Code Panel */
+      .code-panel {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      .code-panel.active {
+        display: block;
+      }
+
+      .code-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        background: #1e1e1e;
+        border-bottom: 1px solid #333;
+      }
+
+      .code-lang {
+        color: #888;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .copy-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border: none;
+        background: #333;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: all 0.2s;
+      }
+
+      .copy-btn:hover {
+        background: #444;
+      }
+
+      .copy-btn.copied {
+        background: #28a745;
+      }
+
+      .code-content {
+        padding: 16px;
+        background: #1e1e1e;
+        color: #d4d4d4;
+        font-family: 'Monaco', 'Menlo', monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        overflow: auto;
+        height: calc(100% - 50px);
+      }
+
+      .code-content .tag {
+        color: #569cd6;
+      }
+
+      .code-content .attr {
+        color: #9cdcfe;
+      }
+
+      .code-content .string {
+        color: #ce9178;
+      }
+
+      .code-content .comment {
+        color: #6a9955;
+      }
+
+      /* Right Panel - Controls */
+      .controls-panel {
+        width: 320px;
+        min-width: 320px;
+        background: var(--bg-secondary);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .controls-header {
+        padding: 16px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .controls-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+      }
+
+      .controls-subtitle {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .controls-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+      }
+
+      .control-group {
+        margin-bottom: 20px;
+      }
+
+      .control-label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .control-input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-size: 14px;
+        transition: all 0.2s;
+      }
+
+      .control-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px var(--primary-color-alpha);
+      }
+
+      .control-select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .control-select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      .control-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+      }
+
+      .toggle-switch {
+        position: relative;
+        width: 44px;
+        height: 24px;
+        background: var(--border-color);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .toggle-switch.active {
+        background: var(--primary-color);
+      }
+
+      .toggle-switch::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50%;
+        transition: transform 0.2s;
+      }
+
+      .toggle-switch.active::after {
+        transform: translateX(20px);
+      }
+
+      .reset-btn {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-top: 20px;
+      }
+
+      .reset-btn:hover {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      /* Documentation Section */
+      .docs-panel {
+        display: none;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+      }
+
+      .docs-panel.active {
+        display: flex;
+      }
+
+      .docs-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 24px;
+      }
+
+      .docs-section {
+        margin-bottom: 32px;
+      }
+
+      .docs-section-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .props-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      .props-table th,
+      .props-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .props-table th {
+        font-weight: 600;
+        color: var(--text-secondary);
+        background: var(--bg-secondary);
+      }
+
+      .props-table td {
+        color: var(--text-primary);
+      }
+
+      .prop-name {
+        font-family: monospace;
+        color: var(--primary-color);
+      }
+
+      .prop-type {
+        font-family: monospace;
+        color: #e34c26;
+      }
+
+      .prop-default {
+        font-family: monospace;
+        color: var(--text-muted);
+      }
+
+      /* Empty State */
+      .empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: var(--text-muted);
+        text-align: center;
+        padding: 40px;
+      }
+
+      .empty-state-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+        opacity: 0.5;
+      }
+
+      .empty-state-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+      }
+
+      .empty-state-text {
+        font-size: 14px;
+        max-width: 300px;
+      }
+
+      /* Dark Theme */
+      [data-theme="dark"] {
+        --bg-primary: #1a1a2e;
+        --bg-secondary: #16213e;
+        --bg-hover: #1f3460;
+        --text-primary: #eaeaea;
+        --text-secondary: #b0b0b0;
+        --text-muted: #6c757d;
+        --border-color: #2d3748;
+        --primary-color: #4dabf7;
+        --primary-color-alpha: rgba(77, 171, 247, 0.2);
+      }
+
+      [data-theme="light"] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8f9fa;
+        --bg-hover: #e9ecef;
+        --text-primary: #212529;
+        --text-secondary: #495057;
+        --text-muted: #6c757d;
+        --border-color: #dee2e6;
+        --primary-color: #0d6efd;
+        --primary-color-alpha: rgba(13, 110, 253, 0.1);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .preview-frame > * {
+        animation: fadeIn 0.3s ease;
+      }
+    </style>
+  </head>
+  <body data-theme="light">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="brand-text">SF Component Library</span>
+        </div>
+        <div class="navbar-menu">
+          <a href="index.html" class="nav-link">Components</a>
+          <a href="explorer.html" class="nav-link active">Explorer</a>
+          <a href="#" class="nav-link">Documentation</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Component Explorer -->
+    <div class="explorer">
+      <!-- Left Sidebar -->
+      <aside class="explorer-sidebar">
+        <div class="sidebar-header">
+          <div class="search-box">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" class="search-input" placeholder="Search components..." id="componentSearch">
+          </div>
+        </div>
+        <div class="sidebar-content" id="componentList">
+          <!-- Components will be rendered here -->
+        </div>
+      </aside>
+
+      <!-- Main Panel -->
+      <main class="explorer-main">
+        <header class="main-header">
+          <div class="component-info">
+            <h1 class="component-name" id="componentName">Select a Component</h1>
+            <span class="component-badge" id="componentCategory">-</span>
+          </div>
+          <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+              <span>Theme</span>
+            </button>
+            <div class="responsive-btns">
+              <button class="responsive-btn" data-size="mobile">Mobile</button>
+              <button class="responsive-btn" data-size="tablet">Tablet</button>
+              <button class="responsive-btn active" data-size="desktop">Desktop</button>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-content">
+          <!-- Preview Panel -->
+          <div class="preview-panel">
+            <div class="preview-tabs">
+              <button class="preview-tab active" data-tab="preview">Preview</button>
+              <button class="preview-tab" data-tab="code">Code</button>
+              <button class="preview-tab" data-tab="docs">Documentation</button>
+            </div>
+            <div class="preview-content">
+              <div class="preview-frame desktop" id="previewFrame">
+                <div class="empty-state" id="emptyState">
+                  <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                  </svg>
+                  <h3 class="empty-state-title">Select a Component</h3>
+                  <p class="empty-state-text">Choose a component from the sidebar to see its preview and customize its properties.</p>
+                </div>
+                <div id="componentPreview"></div>
+                <div class="code-panel" id="codePanel">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="copy-btn" id="copyBtn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre class="code-content" id="codeContent"></pre>
+                </div>
+                <div class="docs-panel" id="docsPanel">
+                  <div class="docs-content" id="docsContent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Panel - Controls -->
+          <aside class="controls-panel">
+            <div class="controls-header">
+              <h2 class="controls-title">Properties</h2>
+              <p class="controls-subtitle">Customize component props</p>
+            </div>
+            <div class="controls-content" id="controlsContent">
+              <p style="color: var(--text-muted); font-size: 14px;">Select a component to see its properties.</p>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script src="/src/scripts/explorer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Split View - SF Component Library</title>
+    <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.22.1/assets/styles/salesforce-lightning-design-system.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="brand-text">SF Component Library</span>
+        </div>
+        <div class="navbar-menu">
+          <a href="index.html" class="nav-link">Components</a>
+          <a href="#" class="nav-link">Documentation</a>
+          <a href="#" class="nav-link">Resources</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="page-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <a href="index.html" class="breadcrumb-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Components
+          </a>
+        </div>
+
+        <!-- Header -->
+        <header class="page-header">
+          <div class="component-badge">
+            <span class="badge-dot"></span>
+            <span>Custom Component</span>
+          </div>
+          <h1 class="page-title">Split View</h1>
+          <p class="page-description">
+            A master-detail split view layout for displaying a list on one side and detailed information on the other. 
+            Perfect for record list pages.
+          </p>
+        </header>
+
+        <!-- Component Preview -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Preview
+          </h2>
+          <div class="component-preview" style="padding: 0; height: 400px;">
+            <!-- Split View -->
+            <div class="slds-split-view">
+              <!-- Master List -->
+              <div class="slds-split-view__list">
+                <div class="slds-split-view__list-header">
+                  <span class="slds-split-view__list-header-title">Accounts</span>
+                  <span class="slds-split-view__list-header-count">5</span>
+                </div>
+                <div class="slds-split-view__list-items">
+                  <!-- Item 1 -->
+                  <div class="slds-split-view__list-item slds-split-view__list-item_selected">
+                    <div class="slds-split-view__list-item-content">
+                      <span class="slds-split-view__list-item-title">Acme Corporation</span>
+                      <span class="slds-split-view__list-item-meta">San Francisco, CA</span>
+                    </div>
+                  </div>
+                  <!-- Item 2 -->
+                  <div class="slds-split-view__list-item">
+                    <div class="slds-split-view__list-item-content">
+                      <span class="slds-split-view__list-item-title">Global Tech Inc</span>
+                      <span class="slds-split-view__list-item-meta">New York, NY</span>
+                    </div>
+                  </div>
+                  <!-- Item 3 -->
+                  <div class="slds-split-view__list-item">
+                    <div class="slds-split-view__list-item-content">
+                      <span class="slds-split-view__list-item-title">Innovation Labs</span>
+                      <span class="slds-split-view__list-item-meta">Austin, TX</span>
+                    </div>
+                  </div>
+                  <!-- Item 4 -->
+                  <div class="slds-split-view__list-item">
+                    <div class="slds-split-view__list-item-content">
+                      <span class="slds-split-view__list-item-title">Tech Solutions</span>
+                      <span class="slds-split-view__list-item-meta">Seattle, WA</span>
+                    </div>
+                  </div>
+                  <!-- Item 5 -->
+                  <div class="slds-split-view__list-item">
+                    <div class="slds-split-view__list-item-content">
+                      <span class="slds-split-view__list-item-title">Digital Dynamics</span>
+                      <span class="slds-split-view__list-item-meta">Boston, MA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Detail Panel -->
+              <div class="slds-split-view__detail">
+                <div class="slds-split-view__detail-header">
+                  <h3 class="slds-split-view__detail-title">Acme Corporation</h3>
+                  <div class="slds-split-view__detail-actions">
+                    <button class="slds-button slds-button_icon">
+                      <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+                      </svg>
+                    </button>
+                    <button class="slds-button slds-button_icon">
+                      <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="slds-split-view__detail-content">
+                  <div class="slds-form">
+                    <div class="slds-form__row">
+                      <div class="slds-form__item">
+                        <label class="slds-form-element__label">Industry</label>
+                        <div class="slds-form-element__static">Technology</div>
+                      </div>
+                      <div class="slds-form__item">
+                        <label class="slds-form-element__label">Annual Revenue</label>
+                        <div class="slds-form-element__static">$50M - $100M</div>
+                      </div>
+                    </div>
+                    <div class="slds-form__row">
+                      <div class="slds-form__item">
+                        <label class="slds-form-element__label">Phone</label>
+                        <div class="slds-form-element__static">(415) 555-0123</div>
+                      </div>
+                      <div class="slds-form__item">
+                        <label class="slds-form-element__label">Website</label>
+                        <div class="slds-form-element__static">www.acme.com</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LWC Code Section - HTML -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            LWC HTML Template
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">HTML</span>
+              <button class="copy-button" onclick="copyCode('split-html')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="split-html"><code><template>
+    <div class="slds-split-view">
+        <!-- Master List -->
+        <div class="slds-split-view__list">
+            <div class="slds-split-view__list-header">
+                <span class="slds-split-view__list-header-title">{listTitle}</span>
+                <span class="slds-split-view__list-header-count">{items.length}</span>
+            </div>
+            <div class="slds-split-view__list-items">
+                <template for:each={items} for:item="item">
+                    <div class="slds-split-view__list-item" 
+                         key={item.id}
+                         class:slds-split-view__list-item_selected={item.id === selectedId}
+                         onclick={selectItem}>
+                        <div class="slds-split-view__list-item-content">
+                            <span class="slds-split-view__list-item-title">{item.title}</span>
+                            <span class="slds-split-view__list-item-meta">{item.meta}</span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        
+        <!-- Detail Panel -->
+        <div class="slds-split-view__detail">
+            <div class="slds-split-view__detail-header">
+                <h3 class="slds-split-view__detail-title">{selectedItem.title}</h3>
+                <div class="slds-split-view__detail-actions">
+                    <button class="slds-button slds-button_icon" onclick={editItem}>
+                        <svg class="slds-icon slds-icon_x-small"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use></svg>
+                    </button>
+                    <button class="slds-button slds-button_icon" onclick={deleteItem}>
+                        <svg class="slds-icon slds-icon_x-small"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="slds-split-view__detail-content">
+                <slot name="detail-content"></slot>
+            </div>
+        </div>
+    </div>
+</template></code></pre>
+          </div>
+        </section>
+
+        <!-- LWC JavaScript -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            LWC JavaScript
+          </h2>
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-language">JavaScript</span>
+              <button class="copy-button" onclick="copyCode('split-js')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block" id="split-js"><code>import { LightningElement, track } from 'lwc';
+
+export default class SfSplitView extends LightningElement {
+    @track selectedId = '1';
+    @track listTitle = 'Accounts';
+    
+    @track items = [
+        { id: '1', title: 'Acme Corporation', meta: 'San Francisco, CA' },
+        { id: '2', title: 'Global Tech Inc', meta: 'New York, NY' },
+        { id: '3', title: 'Innovation Labs', meta: 'Austin, TX' },
+        { id: '4', title: 'Tech Solutions', meta: 'Seattle, WA' },
+        { id: '5', title: 'Digital Dynamics', meta: 'Boston, MA' }
+    ];
+
+    get selectedItem() {
+        return this.items.find(item => item.id === this.selectedId);
+    }
+
+    selectItem(event) {
+        const itemId = event.currentTarget.dataset.id;
+        this.selectedId = itemId;
+    }
+
+    editItem() {
+        this.dispatchEvent(new CustomEvent('edit', {
+            detail: { id: this.selectedId }
+        }));
+    }
+
+    deleteItem() {
+        this.dispatchEvent(new CustomEvent('delete', {
+            detail: { id: this.selectedId }
+        }));
+    }
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- Usage Notes -->
+        <section class="component-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Usage Notes
+          </h2>
+          <div class="usage-notes">
+            <ul>
+              <li>Custom split view layout not in Salesforce documentation</li>
+              <li>Perfect for list-detail page layouts like standard objects</li>
+              <li>Master list with selection state</li>
+              <li>Detail panel with editable content</li>
+              <li>Uses SLDS form components for detail display</li>
+              <li>Responsive design with proper mobile handling</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">Salesforce Component Library • Built with Vite.js & SLDS2</p>
+      </div>
+    </footer>
+
+    <script src="/src/scripts/copy-code.js"></script>
+  </body>
+</html>

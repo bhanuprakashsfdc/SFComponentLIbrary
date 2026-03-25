@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salesforce Component Library</title>
+    <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.22.1/assets/styles/salesforce-lightning-design-system.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="brand-text">SF Component Library</span>
+        </div>
+        <div class="navbar-menu">
+          <a href="#" class="nav-link active">Components</a>
+          <a href="#" class="nav-link">Documentation</a>
+          <a href="#" class="nav-link">Resources</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Lightning Web Components</span>
+        </div>
+        <h1 class="hero-title">Build Beautiful Salesforce Components</h1>
+        <p class="hero-description">
+          Custom LWC components NOT in Salesforce documentation - built specifically for your projects 
+          with SLDS2 styling.
+        </p>
+        <div class="hero-actions">
+          <a href="explorer.html" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Open Explorer
+          </a>
+          <a href="#" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-value">10+</span>
+          <span class="stat-label">Components</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">LWC Compatible</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">SLDS2</span>
+          <span class="stat-label">Design System</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">Custom</span>
+          <span class="stat-label">Not in SF Docs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Components Section -->
+    <section class="components">
+      <div class="components-container">
+        <div class="section-header">
+          <h2 class="section-title">Custom Components</h2>
+          <p class="section-description">Unique components built for Salesforce - not available in standard documentation</p>
+        </div>
+
+        <div class="components-grid">
+          <!-- Accordion -->
+          <a href="accordion.html" class="component-card">
+            <div class="card-header">
+              <div class="card-icon accordion-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 6h18M3 12h18M3 18h18"/>
+                </svg>
+              </div>
+              <span class="card-badge">Core</span>
+            </div>
+            <h3 class="card-title">Accordion</h3>
+            <p class="card-description">Collapsible sections for organizing content and reducing visual clutter</p>
+            <div class="card-footer">
+              <span class="card-link">View Component</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Timeline -->
+          <a href="timeline.html" class="component-card">
+            <div class="card-header">
+              <div class="card-icon timeline-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <span class="card-badge">Custom</span>
+            </div>
+            <h3 class="card-title">Timeline</h3>
+            <p class="card-description">Vertical timeline for displaying chronological events and process steps</p>
+            <div class="card-footer">
+              <span class="card-link">View Component</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Step Indicator -->
+          <a href="step-indicator.html" class="component-card">
+            <div class="card-header">
+              <div class="card-icon step-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="4" y1="21" x2="4" y2="14"/>
+                  <line x1="4" y1="10" x2="4" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12" y2="3"/>
+                  <circle cx="4" cy="12" r="2"/>
+                  <circle cx="12" cy="10" r="2"/>
+                </svg>
+              </div>
+              <span class="card-badge">Custom</span>
+            </div>
+            <h3 class="card-title">Step Indicator</h3>
+            <p class="card-description">Horizontal step wizard for multi-step forms and onboarding flows</p>
+            <div class="card-footer">
+              <span class="card-link">View Component</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Search with Filters -->
+          <a href="search-filters.html" class="component-card">
+            <div class="card-header">
+              <div class="card-icon search-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </div>
+              <span class="card-badge">Custom</span>
+            </div>
+            <h3 class="card-title">Search with Filters</h3>
+            <p class="card-description">Search input with dynamic filter chips for advanced filtering</p>
+            <div class="card-footer">
+              <span class="card-link">View Component</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Floating Action Button -->
+          <a href="floating-action-button.html" class="component-card">
+            <div class="card-header">
+              <div class="card-icon fab-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="16"/>
+                  <line x1="8" y1="12" x2="16" y2="12"/>
+                </svg>
+              </div>
+              <span class="card-badge">Custom</span>
+            </div>
+            <h3 class="card-title">Floating Action Button</h3>
+            <p class="card-description">Expandable FAB with quick action menu for common tasks</p>
+            <div class="card-footer">
+              <span class="card-link">View Component</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Split View -->
+          <a href="split-view.html" class="component-card">
+            <div class="card-header">
+              <div class="card-icon split-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <line x1="12" y1="3" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <span class="card-badge">Custom</span>
+            </div>
+            <h3 class="card-title">Split View</h3>
+            <p class="card-description">Master-detail split view for list-detail page layouts</p>
+            <div class="card-footer">
+              <span class="card-link">View Component</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Card Carousel -->
+          <a href="card-carousel.html" class="component-card">
+            <div class="card-header">
+              <div class="card-icon carousel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="18" rx="2"/>
+                  <line x1="2" y1="9" x2="22" y2="9"/>
+                  <polyline points="7 15 9 12 7 9"/>
+                  <polyline points="17 15 15 12 17 9"/>
+                </svg>
+              </div>
+              <span class="card-badge">Custom</span>
+            </div>
+            <h3 class="card-title">Card Carousel</h3>
+            <p class="card-description">Horizontal carousel for displaying cards with navigation</p>
+            <div class="card-footer">
+              <span class="card-link">View Component</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Empty State -->
+          <a href="empty-state.html" class="component-card">
+            <div class="card-header">
+              <div class="card-icon empty-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 13V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7"/>
+                  <circle cx="18" cy="18" r="3"/>
+                </svg>
+              </div>
+              <span class="card-badge">Custom</span>
+            </div>
+            <h3 class="card-title">Empty State</h3>
+            <p class="card-description">Visual cue for when there's no data available</p>
+            <div class="card-footer">
+              <span class="card-link">View Component</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Toast Notification -->
+          <a href="toast-notification.html" class="component-card">
+            <div class="card-header">
+              <div class="card-icon toast-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <span class="card-badge">Custom</span>
+            </div>
+            <h3 class="card-title">Toast Notification</h3>
+            <p class="card-description">Custom toast notifications with success, error, warning, and info variants</p>
+            <div class="card-footer">
+              <span class="card-link">View Component</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="features-container">
+        <div class="section-header">
+          <h2 class="section-title">Why Use This Library?</h2>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-title">LWC Compatible</h3>
+            <p class="feature-description">All components are fully compatible with Lightning Web Components. Copy the code and use it in your Salesforce org.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">SLDS2 Design</h3>
+            <p class="feature-description">Built on Salesforce Lightning Design System 2, ensuring consistent look and feel across the Salesforce ecosystem.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Copy & Paste</h3>
+            <p class="feature-description">Every component comes with ready-to-use HTML and JavaScript code. Just copy and integrate into your project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">Salesforce Component Library • Built with Vite.js & SLDS2</p>
+      </div>
+    </footer>
+  </body>
+</html>
